@@ -53,6 +53,7 @@ RSpec.describe SampleController, :type => :controller do
                 end
 
                 it "outputs a descriptive error message" do
+                    # ...so that the developer won't have to look at the status codes
                     get :account, params: { id: 69696969 }
                     output = JSON.parse(response.body, symbolize_names: true)
                     expect(output[:error]).to eq "Account not found!"
